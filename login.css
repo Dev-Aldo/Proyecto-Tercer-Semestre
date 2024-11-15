@@ -1,0 +1,382 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;  
+}
+
+body{         
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: black;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 140px;
+    background-color: black;
+    padding: 10px 20px;
+    color: gray;
+    border: 5px solid red;
+    box-shadow: 0 0 20px red, inset 0 0 20px red;
+}
+
+.logo {
+    width: 130px;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%); /* Inicia fuera de la pantalla en la parte superior */
+        opacity: 0; /* Inicia transparente */
+    }
+    to {
+        transform: translateY(0); /* Termina en su posición original */
+        opacity: 1; /* Termina opaco */
+    }
+}
+
+/* Aplica la animación al nav */
+.animated-nav {
+    animation: slideDown 0.8s ease-out; /* Duración y suavidad de la animación */
+}
+
+/* Efecto base para los botones */
+.navbar .menu li {
+    position: relative; /* Para permitir el posicionamiento de los efectos */
+    padding: 10px 20px; /* Espaciado alrededor del texto del botón */
+    font-size: 18px;
+    text-transform: uppercase; /* Hacer que el texto sea todo en mayúsculas */
+    font-weight: bold;
+    letter-spacing: 1px; /* Espaciado entre letras */
+    overflow: hidden; /* Oculta las partes del botón fuera del área visible */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+/* El enlace dentro del li */
+.navbar .menu li a {
+    color: #fff; /* Color del texto blanco */
+    text-decoration: none; /* Eliminar subrayado */
+    display: inline-block; /* Asegura que el enlace ocupe el espacio necesario */
+    position: relative; /* Para permitir efectos dentro del enlace */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transición suave para el color y el resplandor */
+}
+
+/* Efecto hover para el li */
+.navbar .menu li:hover {
+    transform: scale(1.1) rotate(10deg); /* Escalado y ligera rotación */
+    background-color: rgba(255, 0, 0, 0.2); /* Fondo translúcido rojo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.8), 0 0 20px 4px rgba(255, 0, 0, 0.5); /* Resplandor rojo (efecto neón) */
+}
+
+/* Efecto en el texto del enlace */
+.navbar .menu li:hover a {
+    color: red; /* El texto se vuelve rojo */
+    text-shadow: 0 0 8px red, 0 0 15px red, 0 0 30px red; /* Resplandor de neón alrededor del texto */
+}
+
+/* Animación de deslizamiento de abajo hacia arriba */
+.navbar .menu li::before {
+    content: ''; /* No es necesario un texto, solo un efecto visual */
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: red; /* Línea roja */
+    bottom: 0;
+    left: -100%; /* Comienza fuera del botón */
+    transition: left 0.3s ease; /* Desliza la línea desde la izquierda */
+}
+
+/* La línea aparece cuando se pasa el ratón sobre el li */
+.navbar .menu li:hover::before {
+    left: 0; /* La línea se desliza hacia la derecha */
+}
+
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li {
+    position: relative;
+}
+
+.texto-logo {
+    margin-right: 700px;
+    font-size: 40px;
+    text-shadow: 0 0 10px red, 0 0 20px red, 0 0 40px red, 0 0 80px red;
+    color: white;
+}
+
+li {
+    font-size: 25px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+main{
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.contenedor_todo{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+    border: 5px;
+}
+
+.caja_trasera{
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: black;
+    border: 5px solid gray;
+    border-radius: 10px;
+    transition: .3s;
+    
+
+}
+
+.caja_trasera{
+
+    border: 5px solid red;
+    box-shadow: 0 0 20px red, inset 0 0 20px red;
+
+    
+}
+
+
+
+
+
+.caja_trasera div{
+    margin: 100px 40px;
+    color: white;
+    transition: all 500ms;
+}
+
+
+.caja_trasera div p,
+.caja_trasera button{
+    margin-top: 30px;
+}
+
+.caja_trasera div h3{
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.caja_trasera div p{
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.caja_trasera button{
+    padding: 10px 40px;
+    border: none;
+    font-size: 14px;
+    background: gray;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    transition: all 300ms;
+    transition: .3s;
+    
+}
+
+
+.caja_trasera button:hover{
+    background-color: red;
+    color: black;
+    box-shadow: 0px 0px 20px red, inset 0px 0px 20px red;
+}
+
+
+
+/*Formularios*/
+
+.contenedor_login-register{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 10px;
+    
+
+    /*La transicion va despues del codigo JS*/
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+
+.contenedor_login-register form{
+
+    width: 100%;
+    padding: 80px 20px;
+    background: black;
+    border: 5px solid gray;
+    position: absolute;
+    border-radius: 20px;
+    transition: .3s;
+    
+    
+}
+
+.contenedor_login-register form:hover{
+    border: 5px solid red;
+    box-shadow: 0 0 20px red, inset 0 0 20px red;
+    
+
+}
+
+
+.mensaje{padding: 10px;
+text-align: center;
+
+
+}
+
+
+
+
+
+.contenedor_login-register form h2{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 0 10px red, 0 0 20px red, 0 0 40px red, 0 0 80px red;
+    font-size: 50;
+    transition: .3s;
+}
+
+
+
+
+.contenedor_login-register form input{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid gray;
+    outline: none;
+    color: gray;
+    border-radius: 5px;
+    background: black;
+    font-size: 16px;
+    outline: none;
+    transition: .3s;
+}
+
+.contenedor_login-register:hover form input{
+
+    border: 5px solid red;
+    box-shadow: 0 0 20px red, inset 0 0 20px red;
+}
+
+
+
+
+.contenedor_login-register form button{
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: gray;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    transition: .3s;
+}
+
+.contenedor_login-register button:hover{
+
+    background-color: red;
+    color: black;
+    box-shadow: 0px 0px 20px red, inset 0px 0px 20px red;
+}
+
+
+
+
+
+.formulario_login{
+    opacity: 1;
+    display: block;
+}
+.formulario_register{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 850px){
+
+    main{
+        margin-top: 50px;
+    }
+
+    .caja_trasera{
+        max-width: 350px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .caja_trasera div{
+        margin: 0px;
+        position: absolute;
+    }
+
+
+    /*Formularios*/
+
+    .contenedor_login-register{
+        top: -10px;
+        left: -5px;
+        margin: auto;
+    }
+
+    .contenedor_login-register form{
+        position: relative;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 35px;
+    background: black;
+    color: white;
+    border: 5px solid red;
+    box-shadow: 0 0 20px red, inset 0 0 20px red;
+}

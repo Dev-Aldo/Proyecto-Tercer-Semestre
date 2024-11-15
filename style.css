@@ -1,0 +1,382 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.navbar {
+    position: fixed; /* Hace que la barra de navegación se quede fija en la parte superior */
+    top: 0; /* Se posiciona en la parte superior de la página */
+    left: 0; /* Alineado con el borde izquierdo */
+    width: 96.70%; /* Ocupa todo el ancho de la pantalla */
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px 20px;
+    color: gray;
+    border: 5px solid red;
+    box-shadow: 0 0 20px red, inset 0 0 20px red;
+    z-index: 1000; /* Asegura que la barra de navegación esté siempre encima de otros elementos */
+}
+
+.logo {
+    width: 130px;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%); /* Inicia fuera de la pantalla en la parte superior */
+        opacity: 0; /* Inicia transparente */
+    }
+    to {
+        transform: translateY(0); /* Termina en su posición original */
+        opacity: 1; /* Termina opaco */
+    }
+}
+
+/* Aplica la animación al nav */
+.animated-nav {
+    animation: slideDown 0.8s ease-out; /* Duración y suavidad de la animación */
+}
+
+/* Efecto base para los botones */
+.navbar .menu li {
+    position: relative; /* Para permitir el posicionamiento de los efectos */
+    padding: 10px 20px; /* Espaciado alrededor del texto del botón */
+    font-size: 18px;
+    text-transform: uppercase; /* Hacer que el texto sea todo en mayúsculas */
+    font-weight: bold;
+    letter-spacing: 1px; /* Espaciado entre letras */
+    overflow: hidden; /* Oculta las partes del botón fuera del área visible */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+/* El enlace dentro del li */
+.navbar .menu li a {
+    color: #fff; /* Color del texto blanco */
+    text-decoration: none; /* Eliminar subrayado */
+    display: inline-block; /* Asegura que el enlace ocupe el espacio necesario */
+    position: relative; /* Para permitir efectos dentro del enlace */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transición suave para el color y el resplandor */
+}
+
+/* Efecto hover para el li */
+.navbar .menu li:hover {
+    transform: scale(1.1) rotate(10deg); /* Escalado y ligera rotación */
+    background-color: rgba(255, 0, 0, 0.2); /* Fondo translúcido rojo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.8), 0 0 20px 4px rgba(255, 0, 0, 0.5); /* Resplandor rojo (efecto neón) */
+}
+
+/* Efecto en el texto del enlace */
+.navbar .menu li:hover a {
+    color: red; /* El texto se vuelve rojo */
+    text-shadow: 0 0 8px red, 0 0 15px red, 0 0 30px red; /* Resplandor de neón alrededor del texto */
+}
+
+/* Animación de deslizamiento de abajo hacia arriba */
+.navbar .menu li::before {
+    content: ''; /* No es necesario un texto, solo un efecto visual */
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: red; /* Línea roja */
+    bottom: 0;
+    left: -100%; /* Comienza fuera del botón */
+    transition: left 0.3s ease; /* Desliza la línea desde la izquierda */
+}
+
+/* La línea aparece cuando se pasa el ratón sobre el li */
+.navbar .menu li:hover::before {
+    left: 0; /* La línea se desliza hacia la derecha */
+}
+
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li {
+    position: relative;
+}
+
+.texto-logo {
+    margin-right: 600px;
+    font-size: 40px;
+    text-shadow: 0 0 10px red, 0 0 20px red, 0 0 40px red, 0 0 80px red;
+    color: white;
+}
+
+li {
+    font-size: 25px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    margin-top: 80px; /* Esto asegura que el contenido no se quede debajo de la barra de navegación */
+}
+
+#postsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    color: white;
+    padding: 50px;
+}
+
+.post {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid red;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    color: white;
+    width: 600px;
+    text-align: center;
+}
+
+
+.post-form {
+    background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    border: 2px solid red; /* Borde rojo de 2px */
+    border-radius: 5px; /* Bordes redondeados de 5px */
+    padding: 20px; /* Relleno interno de 20px */
+    margin: 20px auto; /* Margen vertical de 20px y centra horizontalmente */
+    max-width: 600px; /* Ancho máximo de 600px */
+    text-align: center; /* Centra el texto en el formulario */
+}
+
+textarea {
+    width: 60%; /* Ocupa el 100% del ancho del contenedor */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente negro */
+    color: white; /* Texto en blanco */
+    border: 1px solid red; /* Borde rojo de 1px */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Relleno interno de 10px */
+    margin-bottom: 10px; /* Margen inferior de 10px */
+    resize: none;
+}
+
+
+#postButton {
+    background-color: red; /* Fondo rojo para el botón */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Relleno interno en el eje vertical y horizontal */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a "puntero" al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición de 0.3 segundos al cambiar el fondo */
+}
+
+#postButton:hover {
+    background-color: darkred; /* Cambia el fondo a rojo oscuro al pasar el ratón */
+}
+
+.post img {
+    width: 600px;
+    height: 600;
+    margin-top: 10px; /* Agrega un poco de espacio superior */
+    border-radius: 5px; /* Bordes redondeados para un mejor diseño */
+    object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+}
+
+.comments {
+    margin-top: 15px;
+    border-top: 1px solid gray;
+    padding-top: 10px;
+    text-align: left;
+}
+
+.comment {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.comment-form textarea {
+    width: 90%;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.comment-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-button:hover {
+    background-color: darkred;
+}
+
+.interaction-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.like-icon, .comment-icon {
+    cursor: pointer;
+}
+
+.like-count, .comment-count {
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+
+
+/* Menú lateral mejorado */
+.sidebar {
+    position: fixed;
+    top: 120px; /* Debajo del menú superior */
+    left: 0;
+    width: 250px; /* Más ancho para destacar */
+    height: calc(100% - 120px); /* Resto del alto de la pantalla */
+    background: linear-gradient(180deg, black, #111); /* Fondo degradado */
+    border-right: 5px solid red;
+    box-shadow: 0 0 15px red, inset 0 0 20px red; /* Efecto neón */
+    padding: 20px;
+    z-index: 999;
+    overflow-y: auto; /* Scroll en caso de contenido largo */
+    transition: transform 0.3s ease; /* Transición para interactividad */
+}
+
+/* Efecto al pasar el ratón sobre el sidebar */
+.sidebar:hover {
+    transform: scale(1.02); /* Pequeño zoom al pasar el ratón */
+    box-shadow: 0 0 25px red, inset 0 0 30px red;
+}
+
+/* Estilo de lista */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+/* Estilo de enlaces */
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px; /* Texto más grande */
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el ícono y el texto */
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); /* Sombra suave */
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+/* Hover en los enlaces */
+.sidebar ul li a:hover {
+    background: rgba(255, 0, 0, 0.8); /* Fondo rojo neón */
+    box-shadow: 0 0 15px red, 0 0 30px red; /* Efecto neón */
+    transform: scale(1.05); /* Pequeño zoom */
+    color: white; /* Mantener el texto blanco */
+    text-shadow: 0 0 10px white, 0 0 20px white; /* Resplandor blanco */
+}
+
+/* Íconos en los enlaces (opcional si se agregan íconos) */
+.sidebar ul li a i {
+    font-size: 24px; /* Tamaño del ícono */
+    color: red; /* Color del ícono */
+    transition: transform 0.3s ease; /* Animación de rotación */
+}
+
+/* Rotación del ícono al pasar el ratón */
+.sidebar ul li a:hover i {
+    transform: rotate(20deg); /* Rotar el ícono */
+}
+
+/* Footer del menú lateral */
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px; /* Separación del borde inferior */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho del menú lateral */
+    text-align: center;
+    color: white;
+    font-size: 14px; /* Tamaño de texto reducido */
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+    border-top: 2px solid red; /* Línea superior */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Efecto de neón suave */
+}
+
+/* Animación para el nav lateral */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%); /* Comienza fuera de la pantalla por la izquierda */
+        opacity: 0; /* Inicia transparente */
+    }
+    to {
+        transform: translateX(0); /* Termina en su posición original */
+        opacity: 1; /* Termina completamente visible */
+    }
+}
+
+/* Aplica la animación al nav lateral */
+.sidebar {
+    animation: slideIn 1s ease-out; /* Duración de 1s con un efecto suave */
+    transform: translateX(0); /* Asegura que esté en su posición final */
+}
+
+
+/* Enlaces del footer */
+.sidebar-footer a {
+    color: red; /* Color rojo neón */
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transición suave */
+}
+
+.sidebar-footer a:hover {
+    color: white;
+    text-shadow: 0 0 10px white, 0 0 20px red; /* Resplandor en el texto */
+}
