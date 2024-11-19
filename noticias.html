@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+    <link rel="icon" href="https://github.com/Dev-Aldo/Proyecto-Tercer-Semestre/blob/main/Imagenes/Picsart_24-10-10_02-39-48-784.png?raw=true">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Menú Superior -->
+    <nav class="navbar animated-nav">
+        <div><img src="https://github.com/Dev-Aldo/Proyecto-Tercer-Semestre/blob/main/Imagenes/Picsart_24-10-10_02-39-48-784.png?raw=true" alt="" class="logo"></div>
+        <p class="texto-logo">Community Cobras</p>
+        <ul class="menu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#" id="createPostLink">Crear</a></li>
+        </ul>
+    </nav>
+
+    <!-- Menú Lateral -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="index.html"><i class="general"></i> General</a></li>
+            <li><a href="noticias.html"><i class="noticias"></i> Noticias</a></li>
+            <li><a href="#"><i class="fas fa-cogs"></i> Configuración</a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+        </ul>
+        <!-- Footer del menú lateral -->
+        <div class="sidebar-footer">
+            <p>&copy; 2024 Equipo 1 3B Programación. Todos los derechos reservados.</p>
+            <p><a href="#">Política de Privacidad</a></p>
+        </div>
+    </aside>
+    
+    <main>
+        <!-- Contenido principal -->
+        <section id="postsContainer">
+            <div id="posts"></div>
+        </section>
+
+        <section id="postForm" class="post-form" style="display: none;">
+            <h2>Crear Publicación</h2>
+            <textarea id="postContent" placeholder="Escribe algo..."></textarea>
+            <input type="file" id="postImage" accept="image/*">
+            <button id="postButton">Publicar</button>
+        </section>
+    </main>
+
+    <script src="menu.js"></script>
+    <canvas id="backgroundCanvas"></canvas>
+
+ <!-- Animacion de las particulas -->
+
+<script>
+    const canvas = document.getElementById("backgroundCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = Array(100).fill().map(() => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        dx: (Math.random() - 0.5) * 2,
+        dy: (Math.random() - 0.5) * 2,
+        size: Math.random() * 5 + 1,
+    }));
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+
+            p.x += p.dx;
+            p.y += p.dy;
+
+            if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        });
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
+</body>
+</html>
