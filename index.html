@@ -21,8 +21,8 @@
     <!-- Menú Lateral -->
     <aside class="sidebar">
         <ul>
-            <li><a href="#"><i class="fas fa-user"></i> Perfil</a></li>
-            <li><a href="#"><i class="fas fa-bell"></i> Notificaciones</a></li>
+            <li><a href="index.html"><i class="general"></i> General</a></li>
+            <li><a href="noticias.html"><i class="noticias"></i> Noticias</a></li>
             <li><a href="#"><i class="fas fa-cogs"></i> Configuración</a></li>
             <li><a href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>
         </ul>
@@ -47,8 +47,44 @@
         </section>
     </main>
 
-    
-
     <script src="menu.js"></script>
+    <canvas id="backgroundCanvas"></canvas>
+
+ <!-- Animacion de las particulas -->
+
+<script>
+    const canvas = document.getElementById("backgroundCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = Array(100).fill().map(() => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        dx: (Math.random() - 0.5) * 2,
+        dy: (Math.random() - 0.5) * 2,
+        size: Math.random() * 5 + 1,
+    }));
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+
+            p.x += p.dx;
+            p.y += p.dy;
+
+            if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        });
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
 </body>
 </html>
